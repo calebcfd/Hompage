@@ -1,0 +1,321 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Helvetica;
+    border: none;
+    --lightGray: #BFC9CA;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.flexCenter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.scaleOnHover {
+    transition: scale .25s;
+}
+
+.scaleOnHover:hover {
+    scale: 1.025;
+}
+
+.fadeIn {
+    /* initialize function sets opacity to 1, 3s after load */
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+#navbar {
+    position: fixed;
+    display: flex;
+    z-index: 10;
+    justify-content: space-evenly;
+    width: 25%;
+    right: 50px;
+    top: 2vh;
+    font-size: clamp(1em, 2vmax, 1.5em);
+}
+
+.navLabel {
+    cursor: pointer;
+    margin: 0 5px
+}
+
+.navLabel a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+#landing {
+    height: 100vh;
+    background-image: linear-gradient(
+        #FFAB65,
+        #FF8A65 70%,
+        #FF8A65 80%,
+        #64B5F6 80%
+    );
+}
+
+#primaryTitle {
+    height: 75vh;
+    width: 100%;
+    font-size: clamp(4em, 12vmax, 12em);
+    color: white;
+    padding: 25vh 10vw;
+}
+
+#waveMachine {
+    height: 25vh;
+    width: 150%;
+    overflow-x: hidden;
+    padding-bottom: 10vh;
+}
+
+#waveMachine div {
+    width: 16vw;
+    height: 10vh;
+    margin: 0 -1vw;
+    animation: 8s ease-in-out infinite waves;
+    background-color: #FF8A65;
+    border-radius: 33% 67% / 50% 50%;
+    display: inline-block;
+    border: none;
+}
+
+@keyframes waves {
+    66% {
+        transform: translateX(-125%) rotate(6deg);
+    }
+    100% {
+        transform: translateX(-14.37vw) rotate(0deg);
+    }
+}
+
+#portfolio {
+    height: 100vh;
+    background-image: linear-gradient(
+        #64B5F6 50%,
+        #1976D2
+    );
+}
+
+#totalGrid {
+    width: 100%;
+    height: 210vh;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 1fr 3fr 1fr 1fr;
+    grid-template-rows: 10vh 20vh 60vh 10vh 10vh 60vh 20vh 10vh;
+    grid-template-areas: 
+        'bbl . . bbl2'
+        'bbl ttl ttl bbl2'
+        'bbl bckt bckt bbl2'
+        'bbl . . bbl2'
+        'bbl . . bbl2'
+        'bbl bio tch bbl2'
+        'bbl cntct cntct bbl2'
+        'bbl . . bbl2'
+    ;
+    gap: 20px;
+    background-image: linear-gradient(
+        #64B5F6,
+        #1976D2,
+        #1A237E 
+    );
+}
+
+#projectBucket {
+    background-color: #FF8A65;
+    border-radius: 20px;
+}
+
+.majorTitle {
+    font-size: clamP(2em, 5vmax, 4em);
+    margin: 5vh 0;
+    color: white;
+    text-align: center;
+}
+
+.project {
+    height: 45%;
+    width: 35%;
+    position: relative;
+    border-radius: 20px;
+}
+
+.portLink {
+    position: absolute;
+    background-color: grey;
+    opacity: 0.5;
+    width: 100%;
+    height: 50%;
+    left: 0;
+}
+
+.upper {
+    top: 0;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.lower {
+    top: 50%;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#about {
+    background-image: linear-gradient(
+        #1976D2,
+        #1A237E 
+    );
+}
+
+.minorTitle {
+    font-size: 2em;
+    margin: 2vh 30px;   
+}
+
+.threeWide svg {
+    min-width: 50px;
+    flex-basis: 26%;
+    margin: 10px auto;
+}
+
+.whiteOnOrange {
+    width: 100%;
+    height: 100%;
+    background-color: #FF8A65;
+    color: white;
+}
+
+.whiteOnOrange p {
+    font-size: 1.5em;
+    margin: 30px;
+    line-height: min(4vw, 35px);
+    text-indent: 50px;
+    font-size: clamp(0.75em, 2vmax, 1.5em);
+}
+
+.orangeOnBlue {
+    background-color: #64B5F6;
+    color: #FF8A65;
+}
+
+.whiteOnNavy {
+    background-color: #0E123E;
+    color: white;
+}
+
+.contactButton {
+    border: 1px solid white;
+    font-size: clamp(.75em, 2vmax, 1.25em);
+    font-weight: 700;
+    flex-basis: 25%;
+    text-align: center;
+    border-radius: 1.75em;
+    padding: 0.5em;
+    margin: 5px;
+}
+
+.contactButton:hover {
+    border: 2px solid #FF8A65;
+    color: #FF8A65;
+    /* The difference in margin prevents the buttons from pushing each other when the border width changes on hover */
+    margin: 4px 5px;
+}
+
+.bubbleColumn {
+    position: relative;
+    overflow-Y: clip;
+    z-index: 0;
+}
+
+.bubbleHolder {
+    position: absolute;
+    top: 100%;
+    animation: 7s ease-in infinite bubbleHolder;
+}
+
+@keyframes bubbleHolder {
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200vh);
+    }
+}
+
+.bubba {
+    fill: white;
+    animation: 2s ease-in-out infinite bubbleBlower;
+    position: absolute;
+}
+
+@keyframes bubbleBlower {
+    50% {
+        transform: translateX(2vw);
+    }
+    100% {
+        transform: translateX(0vw);
+    }
+}
+
+.aboveBubbles {
+    z-index: 1;
+}
+
+
+
+
+#tooltip {
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity .5s;
+    background-color: var(--lightGray);
+    font-size: 1.25em;
+    padding: 5px;
+    border-radius: 5px;
+    /*Hovering over the tooltip can cause mouseenter events to be missed. Removing pointer events on the tooltip fixes this*/
+    pointer-events: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    #primaryTitle {
+        text-align: center;
+    }
+
+    #totalGrid {
+        grid-template-columns: .0625fr 3fr 1fr .0625fr;
+    }
+
+    
+
+    .bubbleColumn:nth-child(2) {
+        left: 50%;
+    }
+
+    .bubbleColumn {
+        position: absolute;
+        z-index: 0;
+        width: 50vw;
+        height: 210vh;
+    }
+
+    .threeWide svg {
+        flex-basis: 45%;
+        margin: 10px auto;
+    }
+
+}
