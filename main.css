@@ -4,6 +4,12 @@
     font-family: Helvetica;
     border: none;
     --lightGray: #BFC9CA;
+    --startOrange: #FFAB65;
+    --endOrange: #FF8A65;
+    --startBlue: #64B5F6;
+    --midBlue: #1976D2;
+    --endBlue: #1A237E;
+    --navy: #0E123E;
 }
 
 body {
@@ -56,10 +62,10 @@ body {
 #landing {
     height: 100vh;
     background-image: linear-gradient(
-        #FFAB65,
-        #FF8A65 70%,
-        #FF8A65 80%,
-        #64B5F6 80%
+        var(--startOrange),
+        var(--endOrange) 70%,
+        var(--endOrange) 80%,
+        var(--startBlue) 80%
     );
 }
 
@@ -83,26 +89,29 @@ body {
     height: 10vh;
     margin: 0 -1vw;
     animation: 8s ease-in-out infinite waves;
-    background-color: #FF8A65;
+    background-color: var(--endOrange);
     border-radius: 33% 67% / 50% 50%;
     display: inline-block;
     border: none;
 }
 
 @keyframes waves {
+    0% {
+        transform: translateX(0) rotate(-1deg);
+    }
     66% {
         transform: translateX(-125%) rotate(6deg);
     }
     100% {
-        transform: translateX(-14.37vw) rotate(0deg);
+        transform: translateX(calc(-87.5% - 5px)) rotate(-1deg);
     }
 }
 
 #portfolio {
     height: 100vh;
     background-image: linear-gradient(
-        #64B5F6 50%,
-        #1976D2
+        var(--startBlue) 50%,
+        var(--midBlue)
     );
 }
 
@@ -125,14 +134,14 @@ body {
     ;
     gap: 20px;
     background-image: linear-gradient(
-        #64B5F6,
-        #1976D2,
-        #1A237E 
+        var(--startBlue),
+        var(--midBlue),
+        var(--endBlue) 
     );
 }
 
 #projectBucket {
-    background-color: #FF8A65;
+    background-color: var(--endOrange);
     border-radius: 20px;
 }
 
@@ -148,15 +157,39 @@ body {
     width: 35%;
     position: relative;
     border-radius: 20px;
+    overflow: clip;
+}
+
+.project img {
+    width: 100%;
+    height: 100%;
+    object-fit: fit;
 }
 
 .portLink {
     position: absolute;
     background-color: grey;
-    opacity: 0.5;
+    opacity: 0.8;
     width: 100%;
     height: 50%;
     left: 0;
+    text-align: center;
+    color: white;
+}
+
+.portLinkHolder {
+    opacity: 0;
+}
+
+.portLinkHolder:hover {
+    opacity: 1;
+}
+
+.portLink a {
+    font-size: clamp(1em, 1vmax, 1.5em);
+    color: white;
+    font-weight: 700;
+
 }
 
 .upper {
@@ -173,8 +206,8 @@ body {
 
 #about {
     background-image: linear-gradient(
-        #1976D2,
-        #1A237E 
+        var(--midBlue),
+        var(--endBlue)
     );
 }
 
@@ -192,7 +225,7 @@ body {
 .whiteOnOrange {
     width: 100%;
     height: 100%;
-    background-color: #FF8A65;
+    background-color: var(--endOrange);
     color: white;
 }
 
@@ -205,12 +238,12 @@ body {
 }
 
 .orangeOnBlue {
-    background-color: #64B5F6;
-    color: #FF8A65;
+    background-color: var(--startBlue);
+    color: var(--endOrange);
 }
 
 .whiteOnNavy {
-    background-color: #0E123E;
+    background-color: var(--navy);
     color: white;
 }
 
@@ -226,8 +259,8 @@ body {
 }
 
 .contactButton:hover {
-    border: 2px solid #FF8A65;
-    color: #FF8A65;
+    border: 2px solid var(--endOrange);
+    color: var(--endOrange);
     /* The difference in margin prevents the buttons from pushing each other when the border width changes on hover */
     margin: 4px 5px;
 }
@@ -294,6 +327,11 @@ body {
 
     #primaryTitle {
         text-align: center;
+    }
+
+    #waveMachine div {
+        height: 7vh;
+        width: 17vw;
     }
 
     #totalGrid {
