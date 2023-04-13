@@ -13,7 +13,7 @@
 }
 
 body {
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 .flexCenter {
@@ -256,6 +256,9 @@ body {
     border-radius: 1.75em;
     padding: 0.5em;
     margin: 5px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
 }
 
 .contactButton:hover {
