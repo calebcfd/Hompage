@@ -24,11 +24,15 @@ body {
 }
 
 .scaleOnHover {
-    transition: scale .25s;
+    transition: .25s;
 }
 
 .scaleOnHover:hover {
     scale: 1.025;
+}
+
+.shadowOnHover:hover {
+    box-shadow: 0px 5px 10px var(--navy);
 }
 
 .fadeIn {
@@ -51,6 +55,10 @@ body {
 .navLabel {
     cursor: pointer;
     margin: 0 5px
+}
+
+.navLabel:hover a{
+    text-shadow: 0px 5px 10px hsl(6, 60%, 57%);
 }
 
 .navLabel a {
@@ -76,6 +84,7 @@ body {
     font-size: clamp(4em, 12vmax, 12em);
     color: white;
     padding: 25vh 10vw;
+    text-shadow: 0px 5px 10px hsl(6, 60%, 57%);
 }
 
 #waveMachine {
@@ -108,29 +117,20 @@ body {
     }
 }
 
-#portfolio {
-    height: 100vh;
-    background-image: linear-gradient(
-        var(--startBlue) 50%,
-        var(--midBlue)
-    );
-}
-
 #totalGrid {
     width: 100%;
-    height: 210vh;
     display: grid;
     overflow: hidden;
     grid-template-columns: 1fr 3fr 1fr 1fr;
-    grid-template-rows: 10vh 20vh 60vh 10vh 10vh 60vh 20vh 10vh;
+    grid-template-rows: 10vh 60vh 20vh 10vh 5vh 15vh auto 10vh;
     grid-template-areas: 
-        'bbl . . bbl2'
-        'bbl ttl ttl bbl2'
-        'bbl bckt bckt bbl2'
-        'bbl . . bbl2'
         'bbl . . bbl2'
         'bbl bio tch bbl2'
         'bbl cntct cntct bbl2'
+        'bbl . . bbl2'
+        'bbl . . bbl2'
+        'bbl ttl ttl bbl2'
+        'bbl bckt bckt bbl2'
         'bbl . . bbl2'
     ;
     gap: 20px;
@@ -151,11 +151,13 @@ body {
     margin: 5vh 0;
     color: white;
     text-align: center;
+    text-shadow: 0px 5px 10px var(--navy);
 }
 
 .project {
-    height: 45%;
-    width: 35%;
+    height: 30vh;
+    max-width: 40vh;
+    margin: 1vmax;
     position: relative;
     border-radius: 20px;
     overflow: clip;
@@ -278,16 +280,17 @@ body {
 .bubbleHolder {
     position: absolute;
     top: 100%;
-    animation: 7s ease-in infinite bubbleHolder;
+    animation: 7s linear infinite bubbleHolder;
 }
 
 @keyframes bubbleHolder {
     95% {
         opacity: 1;
+        transform: translateY(-190vh) scale(1);
     }
     100% {
         opacity: 0;
-        transform: translateY(-200vh);
+        transform: translateY(-200vh) scale(1.5);
     }
 }
 
@@ -309,9 +312,6 @@ body {
 .aboveBubbles {
     z-index: 1;
 }
-
-
-
 
 #tooltip {
     position: absolute;
@@ -345,20 +345,11 @@ body {
 
     #totalGrid {
         grid-template-columns: .0625fr 3fr 1fr .0625fr;
-        grid-template-rows: 5vh 5vh 80vh 5vh 15vh 60vh 20vh 5vh;
+        grid-template-rows: 15vh 60vh 20vh 5vh 5vh 5vh auto 5vh;
     }
 
     .majorTitle {
         margin: 2vh 0 0 0;
-    }
-
-    #projectBucket {
-        flex-direction: column;
-    }
-
-    .project {
-        height: 23%;
-        width: 60%;
     }
 
     .bubbleColumn:nth-child(2) {
