@@ -13,7 +13,7 @@
 }
 
 body {
-    overflow-x: clip;
+    overflow-x: hidden;
 }
 
 .flexCenter {
@@ -75,7 +75,7 @@ body {
         var(--endOrange) 80%,
         var(--startBlue) 80%
     );
-    overflow-x: clip;
+    overflow-x: hidden;
 }
 
 #primaryTitle {
@@ -90,7 +90,7 @@ body {
 #waveMachine {
     height: 25vh;
     width: 150%;
-    overflow-x: clip;
+    overflow-x: hidden;
     padding-bottom: 10vh;
 }
 
@@ -160,7 +160,7 @@ body {
     margin: 1vmax;
     position: relative;
     border-radius: 20px;
-    overflow: clip;
+    overflow: hidden;
 }
 
 .project img {
